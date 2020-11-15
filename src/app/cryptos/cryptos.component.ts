@@ -7,9 +7,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CryptosComponent implements OnInit {
 
+
+
+
   constructor() { }
 
   ngOnInit(): void {
   }
+
+
+
+
 
 }
