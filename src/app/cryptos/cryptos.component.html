@@ -1,1 +1,7 @@
 <p>cryptos works!</p>
+
+
+<div *ngFor="let item of assets |async">
+  <div>{{item.ticker}}</div>
+  <div>{{item.id}}</div>
+</div>
