@@ -1,7 +1,7 @@
 
-import { Inject, Injectable } from '@angular/core';
+import { Inject, Injectable, OnInit } from '@angular/core';
 import { LOCAL_STORAGE, StorageService } from 'ngx-webstorage-service';
-import { from, Observable, of } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { Cryptoasset } from './cryptos/cryptoasset';
 
 
@@ -12,7 +12,7 @@ import { Cryptoasset } from './cryptos/cryptoasset';
 })
 
 
-export class CryptostoreService {
+export class CryptostoreService implements OnInit {
 
   STORAGE_KEY = 'local_cryptolist';
 
@@ -20,6 +20,12 @@ export class CryptostoreService {
 
   constructor(@Inject(LOCAL_STORAGE) private storage: StorageService) {
    }
+  ngOnInit(): void {
+    let assetsList = [{"id": 10, "ticker": "BTC", "amount":0.5, "lastprice": 0, "total": 0},{"id": 18, "ticker": "XRP", "amount":2.5, "lastprice": 0, "total": 0}, {"id": 14, "ticker": "DASH", "amount":0.3, "lastprice": 0, "total": 0}]
+    this.saveCryptoList(assetsList);
+    
+
+  }
 
 
 
@@ -41,12 +47,18 @@ export class CryptostoreService {
      this.storage.set(this.STORAGE_KEY, JSON.stringify(assets));
    }
 
+  add(crypto: Cryptoasset) {
 
-   saveAndReload(assets: Cryptoasset[]) : Observable<Cryptoasset[]> {
+  }
 
-    this.saveCryptoList(assets);
-    return this.findAll();
-   }
+  remove(id: number) {
+
+  }
+
+  update(id: number, crypto: Cryptoasset) {
+    
+  }
+
 
 
 
