@@ -17,14 +17,13 @@ assets: Observable<Cryptoasset[]>
 
 
   ngOnInit(): void {
-    // this.cryptoservice.saveCryptoList(this.assetsList);
     this.assets = this.cryptoservice.findAll();
   }
 
 
   reload(): void {
     //this.assetsList[1].amount=this.assetsList[1].amount+2;
-    this.assets = this.cryptoservice.saveAndReload(this.assetsList);
+    this.assets = this.cryptoservice.findAll();
   }
 
   

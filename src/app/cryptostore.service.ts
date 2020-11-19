@@ -19,12 +19,12 @@ export class CryptostoreService implements OnInit {
   cryptoList: Cryptoasset[] = [];
 
   constructor(@Inject(LOCAL_STORAGE) private storage: StorageService) {
-   }
-  ngOnInit(): void {
     let assetsList = [{"id": 10, "ticker": "BTC", "amount":0.5, "lastprice": 0, "total": 0},{"id": 18, "ticker": "XRP", "amount":2.5, "lastprice": 0, "total": 0}, {"id": 14, "ticker": "DASH", "amount":0.3, "lastprice": 0, "total": 0}]
     this.saveCryptoList(assetsList);
-    
-
+   }
+  
+  
+   ngOnInit(): void {
   }
 
 
