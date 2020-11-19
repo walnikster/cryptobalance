@@ -42,6 +42,12 @@ export class CryptostoreService {
    }
 
 
+   saveAndReload(assets: Cryptoasset[]) : Observable<Cryptoasset[]> {
+
+    this.saveCryptoList(assets);
+    return this.findAll();
+   }
+
 
 
 }

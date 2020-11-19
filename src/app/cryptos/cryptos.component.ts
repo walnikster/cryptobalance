@@ -12,17 +12,37 @@ export class CryptosComponent implements OnInit {
 
 
 assets: Observable<Cryptoasset[]>
+//assetsList = [{"id": 10, "ticker": "BTC", "amount":0.5, "lastprice": 0, "total": 0},{"id": 18, "ticker": "XRP", "amount":2.5, "lastprice": 0, "total": 0}, {"id": 14, "ticker": "DASH", "amount":0.3, "lastprice": 0, "total": 0}]
+assetsList = [];
+
+
 
   constructor( private cryptoservice: CryptostoreService ) { }
 
+
+
+
   ngOnInit(): void {
 
-    let assetsList = [{'id': 10, 'ticker': 'BTC', 'amount':0.5, 'lastprice': 0, 'total': 0},{'id': 18, 'ticker': 'XRP', 'amount':2.5, 'lastprice': 0, 'total': 0}, {'id': 14, 'ticker': 'DASH', 'amount':0.3, 'lastprice': 0, 'total': 0}]
 
-    this.cryptoservice.saveCryptoList(assetsList);
+    // this.cryptoservice.saveCryptoList(this.assetsList);
 
     this.assets = this.cryptoservice.findAll();
 
+
+  }
+
+
+  reload(): void {
+
+
+
+
+    //this.assetsList[1].amount=this.assetsList[1].amount+2;
+
+
+
+    this.assets = this.cryptoservice.saveAndReload(this.assetsList);
   }
 
 

@@ -4,4 +4,9 @@
 <div *ngFor="let item of assets |async">
   <div>{{item.ticker}}</div>
   <div>{{item.id}}</div>
+  <div>{{item.amount}}</div>
+  <div>{{item.total}}</div>
 </div>
+<button class="button button-primary"  (click) = "reload()">Save & Reload</button>
+
+
